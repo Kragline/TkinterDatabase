@@ -25,11 +25,14 @@ def add():
     age = ent3.get()
 
     if name and surname and age:
-        base.sql_add(name, surname, age)
-        ent1.delete(0, END)
-        ent2.delete(0, END)
-        ent3.delete(0, END)
-        messagebox.showinfo('Person was added', f'{name.capitalize()} {surname.capitalize()}({age} y.o) was added successfully!')
+        if name.isnumeric() == False and surname.isnumeric() == False and age.isnumeric():
+            base.sql_add(name, surname, age)
+            ent1.delete(0, END)
+            ent2.delete(0, END)
+            ent3.delete(0, END)
+            messagebox.showinfo('Person was added', f'{name.capitalize()} {surname.capitalize()}({age} y.o) was added successfully!')
+        else:
+            messagebox.showwarning('Warnning', 'Wrong type of data')
     else:
         messagebox.showwarning('Warnning', 'Field(s) are empty')
 
