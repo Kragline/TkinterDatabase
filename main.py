@@ -15,6 +15,7 @@ class Database:
 
     def __init__(self, master:Tk) -> None:
         self.master = master
+        self.master.bind('<Return>', self.add)
 
         self.lab1 = ttk.Label(window, text='Name', state='disabled')
         self.lab1.place(x = 15, y = 15)
@@ -24,15 +25,12 @@ class Database:
         self.lab3.place(x = 15, y = 65)
 
         self.ent1 = ttk.Entry(window, width=35, state='disabled')
-        self.ent1.bind('<Return>', self.add)
         self.ent1.place(anchor=N, x = 200, y = 15)
 
         self.ent2 = ttk.Entry(window, width=35, state='disabled')
-        self.ent2.bind('<Return>', self.add)
         self.ent2.place(anchor=N, x = 200, y = 40)
 
         self.ent3 = ttk.Entry(window, width=35, state='disabled')
-        self.ent3.bind('<Return>', self.add)
         self.ent3.place(anchor=N, x = 200, y = 65)
 
         self.create_btn = ttk.Button(window, text='Create',command=self.create, cursor='hand2')
